@@ -55,23 +55,23 @@ class ServiceProvider extends Base
         View::share('sidebar_menu', config("artadmin.sidebar_menu"));
 
         $this->loadRoutesFrom(__DIR__.'/../../routes/artadmin.php');
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'artadmin_mongodb');
-        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'artadmin_mongodb');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'artadmin');
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'artadmin');
         $this->publishes([
             __DIR__.'/../../resources/public' => public_path('vendor/artadmin'),
-        ], 'artadmin_mongodb');
+        ], 'artadmin');
 
         $this->publishes([
             __DIR__.'/../../resources/views' => resource_path('views/vendor/artadmin'),
-        ],"artadmin_mongodb");
+        ],"artadmin");
 
         $this->publishes([
             __DIR__.'/../../resources/lang' => resource_path('lang/vendor/artadmin'),
-        ],"artadmin_mongodb");
+        ],"artadmin");
 
         $this->publishes([
             __DIR__.'/../../config/artadmin.php' => config_path('artadmin.php'),
-        ],"artadmin_mongodb");
+        ],"artadmin");
 
         if ($this->app->runningInConsole()) {
             $this->commands([
